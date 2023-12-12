@@ -1,0 +1,90 @@
+<!-- <div class="row py-3">
+    <div class="details col-md-3">
+  
+
+    </div>
+    <div class="col-md-9">
+    <h2>{{details.original_title}} <span>{{details.original_language}}</span></h2>
+      <p>{{details.tagline}}</p>
+      <ul class='list-unstyled d-flex mx-2'>  </ul>
+     
+     <p>vout:{item.vote_average
+}</p>
+      <p>vout count:{item.vote_count}</p>
+      <p>popularty:{item.popularity
+}</p>
+      <p>ralase data:{item.release_date}</p>
+      <p class='text-muted'>{item.overview
+}</p>
+
+      
+    </div>
+</div> -->
+
+<div @fadeIn class="row py-3" @fadeIn>
+ 
+    <div class="col-md-4">
+        
+    <img *ngIf="details.poster_path" [src]="BaseUrl+details.poster_path" class="w-100 rounded-3" alt="">
+    <img *ngIf="details.profile_path" [src]="BaseUrl+details.profile_path " class="w-100 rounded-3" alt="">
+    </div>
+    <div class="col-md-8">
+        <h2 *ngIf="details.original_language ">{{details.original_title}} <span *ngIf="details.original_language">{{details.original_language}}</span></h2>
+        <h4 *ngIf="details.name ">Name:{{details.name }} </h4>
+        <h4 *ngIf="details.birthday
+        ">Birth Day:{{details.birthday }} </h4>
+        <p *ngIf="details.tagline">{{details.tagline}}</p>
+        <p *ngIf="details.place_of_birth  "> <span class="fs-3">Place of Birth :</span> {{details.place_of_birth }}</p>
+        <div class="d-flex  ">
+            <div class="ms-2" *ngFor="let i of details.genres">
+<p class="bg-info p-2 rounded-3">{{i.name}}</p>
+            </div>
+        </div>
+        <P *ngIf="details.spoken_languages">languages</P>
+        <ul  *ngFor="let item of details.spoken_languages">
+<li>{{item.name}}</li>
+        </ul>
+        <div *ngIf="details.seasons " class="season" >
+            <h2>Seasons :</h2>
+            <ul class="ul" *ngFor="let i of details.seasons">
+<li>{{i.name}}</li>
+<li><span>Number of rings : </span>{{i. episode_count}}</li>
+<li>{{i.air_date}}</li>
+            </ul>
+
+
+        </div>
+        <p *ngIf="details.vote_average">vout : {{details.vote_average}}</p>
+        <h3 *ngIf="details.known_for_department">Department : {{details.known_for_department}}</h3>
+              <p *ngIf="details.vote_count">vout count : {{details.vote_count}}</p>
+              <p *ngIf="details.popularity">popularty : {{details.popularity}}</p>
+              <p *ngIf="details.release_date">ralase data : {{details.release_date}}</p>
+              <p class='text-muted' *ngIf="details.overview">{{details.overview}}</p>
+              <p class='text-muted' *ngIf="details.biography
+              ">{{details.biography
+              }}</p>
+
+            <div *ngIf="details.production_companies"  class="div">
+                <div class="img  d-flex justify-content-center gy-3 "  >
+                   <div *ngFor="let i of details.production_companies" >
+                    <img  [src]="BaseUrl+i.logo_path" class="w-50 gy-2 rounded-3" alt="">
+                    
+                   </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+<div class="row smiler">
+        <div class="d-flex col-md-2 gap-2">
+            <ng-container  *ngFor="let x of array" >
+      
+                <img *ngIf="details.poster_path" [src]="BaseUrl+x.poster_path" class="w-100 rounded-3 poster" alt="">
+         
+           
+    
+        </ng-container>
+
+        </div>
+ 
+</div>

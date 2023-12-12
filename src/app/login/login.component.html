@@ -1,0 +1,34 @@
+<div class="register w-75 m-auto py-5">
+    <h1>Login form</h1>
+    <div class="formdata">
+        <form  [formGroup]="Login" (ngSubmit)="submitform()" >
+          
+         
+            <div class="">
+            <label for="">Email</label>
+            <input type="email" placeholder="Enter Your Email" formControlName="email" class="form-control" class="form-control" 
+            [ngClass]="{'is-valid':Login.controls['email'].valid && Login.controls['email'].touched,
+                         'is-invalid':Login.controls['email'].invalid && Login.controls['email'].touched}" >
+            <div class="valid-feedback">Succ</div>
+            <div class="text-danger invalid-feedback">
+                <span *ngIf="Login.controls['email'].hasError('required')">Email is Not required</span>
+            </div>
+            </div>
+            <div class="">
+            <label for="">Password</label>
+            <input type="password" placeholder="Enter Your Confirm Password" formControlName="password" class="form-control" class="form-control" 
+            [ngClass]="{'is-valid':Login.controls['password'].valid && Login.controls['password'].touched,
+                         'is-invalid':Login.controls['password'].invalid && Login.controls['password'].touched}" >
+            <div class="valid-feedback">Succ</div>
+            <div class="text-danger invalid-feedback">
+                <span *ngIf="Login.controls['password'].hasError('required')">Password is Not required</span>
+            </div>
+            </div>
+          
+            
+                <button class="btn btn-info float-end mt-4  text-light" type="submit" [disabled]="Login.invalid">Login</button>
+          
+        </form>
+    </div>
+  
+</div>

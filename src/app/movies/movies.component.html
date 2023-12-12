@@ -1,0 +1,27 @@
+<div class="row py-5 gy-3">
+    <div class="col-md-4 mt-5">
+        <div class="welcome mt-4">
+            <div class="brdr w-25">
+
+            </div>
+            <h3>Trending</h3>
+            <h3>Movies</h3>
+            <h3>To watch Now</h3>
+            <span>Most watched Movies by day</span>
+            <div class="brdr w-100">
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2" *ngFor="let movie of resultList">
+       <a class="text-decoration-none" [routerLink]="['/details',movie.id,movie.media_type]"> <div class="item position-relative">
+    
+        <img [src]="imgBaseUrl+movie.poster_path" class="w-100 rounded-3" alt="">
+     
+<h3 class="h5">{{movie.title}}</h3>
+<p>{{movie.overview|maxLenght:15}}</p>
+<span class="bg-info position-absolute top-0 end-0 p-2 ">{{movie.vote_average.toFixed(1)}}</span>
+    </div></a>
+    </div>
+</div>
+<app-loader *ngIf="loader" ></app-loader>

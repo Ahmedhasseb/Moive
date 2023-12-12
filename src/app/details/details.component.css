@@ -1,0 +1,26 @@
+.ul > li{
+list-style-type: circle;
+
+margin: 0px !important;
+padding: 0px !important;
+}
+.smiler{
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+.smiler::-webkit-scrollbar{
+    display: none !important;
+}
+.poster{
+   
+    object-fit: contain;
+    
+    box-sizing: content-box;
+    transition: transform 450ms;
+}
+.poster:hover{
+    transform: scale(1.08);
+    cursor: pointer;
+    border-radius: 50%;
+}

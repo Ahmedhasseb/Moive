@@ -1,0 +1,26 @@
+<div class="row py-5 gy-3">
+    <div class="col-md-4 mt-5">
+        <div class="welcome mt-4">
+            <div class="brdr w-25">
+
+            </div>
+            <h3>Trending</h3>
+            <h3>TV Shows</h3>
+            <h3>To watch Now</h3>
+            <span>Most watched Movies by day</span>
+            <div class="brdr w-100">
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2" *ngFor="let tv of tvshows">
+       <a class="text-decoration-none" [routerLink]="['/details',tv.id,tv.media_type]">
+        <div class="item position-relative">
+            <img [src]="imgBaseUrl+tv.poster_path" class="w-100" alt="">
+<h2 class="h6">{{tv.name}}</h2>
+<p>{{tv.overview|maxLenght:15}}</p>
+<span class="bg-info position-absolute top-0 end-0 p-2 ">{{tv.vote_average.toFixed(1)}}</span>
+        </div>
+       </a>
+    </div>
+</div>

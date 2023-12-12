@@ -1,0 +1,63 @@
+<div class="register w-75 m-auto py-5">
+    <h1>Register form</h1>
+    <div class="formdata">
+        <form  [formGroup]="register" (ngSubmit)="submitform()" >
+            <div class="">
+            <label for="">Name</label>
+            <input type="text" placeholder="Enter Your Name" formControlName="name" class="form-control" 
+            [ngClass]="{'is-valid':register.controls['name'].valid && register.controls['name'].touched,
+                         'is-invalid':register.controls['name'].invalid && register.controls['name'].touched}">
+            <div class="text-danger invalid-feedback">
+                <span *ngIf="register.controls['name'].hasError('required')">Name is Not required</span>
+                <span *ngIf="register.controls['name'].hasError('minlength')"> Name must have atleast 3 Character</span>
+                
+            </div>
+           
+            <div class="valid-feedback">Succ</div>
+            </div>
+            <div class="">
+            <label for="">Phone</label>
+            
+            <input type="number" placeholder="Enter Your User Name" formControlName="phone"  class="form-control" class="form-control" 
+            [ngClass]="{'is-valid':register.controls['phone'].valid && register.controls['phone'].touched,
+                         'is-invalid':register.controls['phone'].invalid && register.controls['phone'].touched}">
+            <div class="valid-feedback">Succ</div>
+            <div class="text-danger invalid-feedback">
+                <span *ngIf="register.controls['phone'].hasError('required')">Phone is Not required</span>
+            </div>
+            </div>
+            <div class="">
+            <label for="">Email</label>
+            <input type="email" placeholder="Enter Your Email" formControlName="email" class="form-control" class="form-control" 
+            [ngClass]="{'is-valid':register.controls['email'].valid && register.controls['email'].touched,
+                         'is-invalid':register.controls['email'].invalid && register.controls['email'].touched}" >
+            <div class="valid-feedback">Succ</div>
+            <div class="text-danger invalid-feedback">
+                <span *ngIf="register.controls['email'].hasError('required')">Email is Not required</span>
+            </div>
+            </div>
+            <div class="">
+            <label for="">Password</label>
+            <input type="password" placeholder="Enter Your Confirm Password" formControlName="password" class="form-control" class="form-control" 
+            [ngClass]="{'is-valid':register.controls['password'].valid && register.controls['password'].touched,
+                         'is-invalid':register.controls['password'].invalid && register.controls['password'].touched}" >
+            <div class="valid-feedback">Succ</div>
+            <div class="text-danger invalid-feedback">
+                <span *ngIf="register.controls['password'].hasError('required')">Password is Not required</span>
+            </div>
+            </div>
+            <div>
+                <label for="">Conform Password</label>
+                <input type="password" class="form-control" formControlName="rePassword" [ngClass]="{'is-vaild':register.controls['rePassword'].valid && register.controls['rePassword'].touched,
+            'is-invalid':register.controls['rePassword'].invalid && register.controls['rePassword'].touched}">
+            <div class="text-danger invalid-feedback">
+                    <span *ngIf="register.controls['rePassword'].hasError('required')"  >Confirm Password Not Required</span>
+            </div>
+            </div>
+            <span *ngif="register.vaild" >{{error}}</span>
+                <button class="btn btn-info float-end mt-4  text-light" type="submit" [disabled]="register.invalid">Rggister</button>
+          
+        </form>
+    </div>
+  
+</div>
